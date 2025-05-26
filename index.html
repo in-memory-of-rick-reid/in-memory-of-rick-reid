@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>In Memory of Richard Reid</title>
-  </head>
-  <body>
-    <h1>Richard Reid</h1>
-    <p>In loving memory. Forever in our hearts.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remembering Rick Borden Reid</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <div class="dates">
+        <span class="dob">Oct 3, 1962</span>
+        <img src="images/rick-hero.jpg" alt="Rick Borden Reid" class="hero-photo" />
+        <span class="dod">Apr 11, 2025</span>
+      </div>
+      <h1 class="hero-name">Remembering Rick Borden Reid</h1>
+    </div>
+  </header>
+
+  <nav class="navbar" id="navbar">
+    <img src="images/rick-hero.jpg" class="nav-photo" alt="Rick small" />
+    <ul>
+      <li><a href="#compose">Write a Message</a></li>
+      <li><a href="#wall">Read Posts</a></li>
+      <li><a href="#footer">Contact</a></li>
+      <li><a href="#footer">Credit</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="quote">
+      <p>“To live in hearts we leave behind is not to die.”</p>
+    </section>
+
+    <section class="event">
+      <img src="images/celebration-of-life.jpg" alt="Celebration of Life" />
+    </section>
+
+    <section class="compose" id="compose">
+      <h2>Share a Memory</h2>
+      <form id="memory-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="text" name="title" placeholder="Post Title (optional)" />
+        <textarea name="message" maxlength="250" placeholder="Write up to 250 characters..." required></textarea>
+        <input type="file" name="images" accept="image/*" multiple />
+        <button type="submit">Post</button>
+      </form>
+    </section>
+
+    <section class="wall" id="wall">
+      <h2>Messages & Memories</h2>
+      <div class="wall-posts" id="posts-container">
+        <!-- Posts will appear here -->
+      </div>
+      <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Back to Top</button>
+    </section>
+
+    <section class="preview-gallery">
+      <h2><a href="gallery.html">View Rick's Gallery</a></h2>
+      <div class="gallery-preview" id="gallery-preview">
+        <!-- Preview thumbnails -->
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <p>Created by Nicole Clark | <a href="https://openai.com">ChatGPT</a></p>
+    <p>
+      <a href="https://www.facebook.com/share/16g83N5nYW/">Rick's Facebook</a> |
+      <a href="https://www.facebook.com/share/15fJAbTCgF/">Michelle's Facebook</a>
+    </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
 </html>
