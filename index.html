@@ -8,17 +8,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="hero" id="hero">
-    <div class="hero-dates">
-      <span class="dob">Oct 3, 1958</span>
-      <img src="rick-hero.jpg" alt="Rick Borden Reid" class="hero-photo" />
-      <span class="dod">Apr 11, 2025</span>
+  <header class="hero fade-in" id="hero">
+    <div class="hero-content">
+      <div class="hero-photo-frame">
+        <img src="rick-hero.jpg" alt="Rick Borden Reid" class="hero-photo" />
+      </div>
+      <div class="hero-text">
+        <h1 class="hero-name">Rick Borden Reid</h1>
+        <p class="hero-dates">Oct 3, 1958 - Apr 11, 2025</p>
+        <blockquote class="quote">
+          "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better...
+          The credit belongs to the man who is actually in the arena..."
+          <br><span class="quote-author">— Theodore Roosevelt</span>
+        </blockquote>
+      </div>
     </div>
-    <h1 class="hero-name">Remembering Rick Borden Reid</h1>
   </header>
 
-  <nav class="navbar" id="navbar">
-    <img src="rick-hero.jpg" class="nav-photo" alt="Rick small" />
+  <nav class="navbar">
     <ul>
       <li><a href="#compose">Write a Message</a></li>
       <li><a href="#wall">Read Posts</a></li>
@@ -28,8 +35,8 @@
   </nav>
 
   <main>
-    <section class="message">
-      <p>Life is not measured by the time we have, but by the love we give, the stories we leave behind, and the laughter we spark in others. This space is for the memory of Rick — to hold pieces of him in photos, words, and moments we can carry forward.</p>
+    <section class="message fade-in">
+      <p>This memorial is a space to share the impact Rick made on your life. His memory lives on in every photo, every message, every story told.</p>
     </section>
 
     <section class="event">
@@ -55,7 +62,7 @@
 
     <section class="preview-gallery">
       <h2><a href="gallery.html">View Rick's Gallery</a></h2>
-      <div class="gallery-preview" id="gallery-preview">
+      <div class="gallery-preview">
         <img src="gallery1.jpg" alt="Rick 1" />
         <img src="gallery2.jpg" alt="Rick 2" />
         <img src="gallery3.jpg" alt="Rick 3" />
