@@ -1,105 +1,223 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rick's Gallery</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-      body {
-        background-color: #F9F8F7;
-        margin: 0;
-        font-family: 'Inter', sans-serif;
-        color: #1C1A24;
-      }
+/* Reset and Base Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #F9F8F7;
+  color: #333;
+  line-height: 1.6;
+}
 
-      .gallery-container {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 0 20px;
-        text-align: center;
-        position: relative;
-      }
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.5em;
+  color: #222;
+}
 
-      .gallery-title {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 30px;
-      }
+img {
+  max-width: 100%;
+  display: block;
+}
 
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 16px;
-        justify-content: center;
-        align-items: center;
-      }
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4em 1em 2em;
+  background-color: #F9F8F7;
+}
 
-      .gallery-grid img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer;
-      }
+.hero-dates {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5em;
+}
 
-      .gallery-grid img:hover {
-        transform: scale(1.04);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      }
+.hero-date {
+  font-size: 1.1em;
+  text-align: center;
+}
 
-      .top-button {
-        display: inline-block;
-        margin-bottom: 20px;
-        padding: 10px 20px;
-        background-color: #2C3A4F;
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: 600;
-      }
+.hero-name {
+  font-size: 2.4em;
+  font-weight: 700;
+  margin-top: 0;
+}
 
-      .back-to-top {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        background-color: #2C3A4F;
-        color: white;
-        padding: 10px 16px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        display: none;
-        z-index: 1000;
-      }
+.hero-photo {
+  margin-top: 1em;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
 
-      .back-to-top.show {
-        display: inline-block;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="gallery-container">
-      <a href="index.html#hero" class="top-button">Return to Homepage</a>
-      <h1 class="gallery-title">Rick's Gallery</h1>
-      <div class="gallery-grid">
-        <img src="gallery1.jpg" alt="Rick 1" />
-        <img src="gallery2.jpg" alt="Rick 2" />
-        <img src="gallery3.jpg" alt="Rick 3" />
-      </div>
-    </div>
+.remembering {
+  font-size: 1.1em;
+  color: #444;
+  margin: 0;
+  font-weight: 400;
+}
 
-    <a href="#" class="back-to-top" id="backToTop">Back to Top</a>
+/* Navbar */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75em;
+  display: none;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
 
-    <script>
-      const backToTop = document.getElementById('backToTop');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          backToTop.classList.add('show');
-        } else {
-          backToTop.classList.remove('show');
-        }
-      });
-    </script>
-  </body>
-</html>
+.navbar.visible {
+  display: flex;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Quote */
+.quote {
+  margin: 3em auto;
+  max-width: 800px;
+  padding: 0 1em;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+blockquote footer,
+cite {
+  display: block;
+  margin-top: 1em;
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #777;
+}
+
+/* Message Intro */
+.description {
+  text-align: center;
+  margin: 2em auto;
+  max-width: 600px;
+  font-size: 1em;
+  color: #444;
+}
+
+/* Compose Form */
+.compose {
+  background: #FDFCFA;
+  padding: 3em 1em;
+  max-width: 700px;
+  margin: 3em auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.03);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+input, textarea, button {
+  padding: 0.8em;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+button {
+  background: transparent;
+  border: 2px solid #555;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+button:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* Wall */
+.wall {
+  padding: 2em 1em;
+  background: #F6F6F5;
+}
+
+.wall-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.wall-posts .post {
+  background: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  border-left: 4px solid #ccc;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* Gallery */
+.preview-gallery {
+  padding: 2em 1em;
+  text-align: center;
+}
+
+.gallery-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-preview img {
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-preview img:hover {
+  transform: scale(1.03);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2em;
+  font-size: 0.9em;
+  color: #777;
+  background-color: #F9F8F7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-dates {
+    flex-direction: column;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
