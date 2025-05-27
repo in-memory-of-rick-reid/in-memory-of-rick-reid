@@ -1,231 +1,219 @@
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* General Styling */
 body {
   font-family: 'Inter', sans-serif;
   background-color: #F9F8F7;
   color: #1C1A24;
+  margin: 0;
+  padding: 0;
   line-height: 1.6;
-  padding: 0 1rem;
   scroll-behavior: smooth;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  color: #10122E;
-  margin-bottom: 1rem;
+  margin-top: 0;
 }
 
-p {
-  margin-bottom: 1rem;
+main {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
   padding: 4rem 1rem 2rem;
-  background-color: #fff;
-  animation: fadeInUp 1s ease;
+  background: #F9F8F7;
 }
-
-.hero-photo-frame {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 180px;
-  height: 180px;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-}
-
-.hero-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-name {
-  font-size: 2rem;
-}
-
-.hero-dates {
-  font-size: 1rem;
-  color: #666;
-  margin-top: 0.5rem;
-}
-
-.quote {
-  font-style: italic;
-  max-width: 600px;
-  font-size: 0.95rem;
-  color: #26252C;
-  margin-top: 1rem;
-}
-
-.quote-author {
-  display: block;
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
-}
-
-/* Nav */
-.navbar {
-  position: sticky;
-  top: 0;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(6px);
-  padding: 0.5rem 0;
-  z-index: 1000;
-  text-align: center;
-}
-
-.navbar ul {
-  list-style: none;
+.hero-content.template-style {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 2rem;
 }
+.hero-photo-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-photo {
+  width: 250px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.hero-caption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+.hero-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.25rem 0;
+}
+.hero-dates-left,
+.hero-dates-right {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
 
-.navbar a {
-  text-decoration: none;
+/* Quote */
+.quote {
+  max-width: 700px;
+  margin: 2rem auto 0;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.8;
   color: #2C3A4F;
+  padding: 1rem;
+  background: #FDFCFA;
+  border-left: 4px solid #0C143E;
+}
+.quote-author {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: right;
+  font-style: normal;
   font-weight: 600;
-  transition: color 0.3s;
+  color: #10122E;
 }
 
-.navbar a:hover {
-  color: #0C143E;
+/* Celebration of Life */
+.small-event img {
+  max-width: 300px;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 12px;
 }
 
-/* Sections */
-section {
+/* Message Section */
+.message {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  text-align: center;
   max-width: 800px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.event img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+/* Compose Form */
+.compose form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 600px;
+  margin: 2rem auto;
 }
-
-.event img:hover {
-  transform: scale(1.02);
-}
-
-.compose form,
-.wall {
-  background-color: #FDFCFA;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-form input,
-form textarea {
-  width: 100%;
-  margin-bottom: 1rem;
+.compose input,
+.compose textarea {
   padding: 0.75rem;
-  border: 1px solid #ccc;
   border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 1rem;
 }
-
-form button {
-  padding: 0.75rem 1.5rem;
+.compose button {
+  background: #2C3A4F;
+  color: white;
+  padding: 0.75rem;
   border: none;
-  background-color: #2C3A4F;
-  color: #fff;
-  font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: bold;
 }
 
-form button:hover {
-  background-color: #0C143E;
+/* Wall */
+.wall {
+  margin-top: 3rem;
 }
-
 .wall-posts {
+  border-top: 1px solid #ccc;
   margin-top: 1rem;
-  min-height: 80px;
+  padding-top: 1rem;
 }
-
 .back-to-top {
   margin-top: 2rem;
-  background: transparent;
-  border: 1px solid #ccc;
+  background: #26252C;
+  color: white;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.3s;
 }
 
-.back-to-top:hover {
-  background: #f0f0f0;
+/* Gallery Preview */
+.preview-gallery {
+  text-align: center;
+  margin-top: 4rem;
 }
-
-/* Gallery */
 .gallery-preview {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  display: flex;
+  justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
-
 .gallery-preview img {
-  width: 100%;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s;
 }
-
 .gallery-preview img:hover {
   transform: scale(1.05);
-  cursor: pointer;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem 1rem;
-  background-color: #2C3A4F;
-  color: #fff;
+  padding: 2rem;
+  background: #2C3A4F;
+  color: white;
   margin-top: 3rem;
 }
-
 footer a {
-  color: #ffffff;
+  color: white;
   text-decoration: underline;
 }
 
-/* Animations */
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+.navbar li a {
+  color: #10122E;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.navbar li a:hover {
+  color: #2C3A4F;
+}
+
+/* Transitions */
 .fade-in {
-  animation: fadeIn 1s ease forwards;
   opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1s ease-out forwards;
 }
 
 @keyframes fadeIn {
   to {
     opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
