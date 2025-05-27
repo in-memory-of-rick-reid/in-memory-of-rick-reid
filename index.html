@@ -1,95 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>In Memory of Rick Reid</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="hero" id="hero">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remembering Rick Borden Reid</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-dates">
+      <div class="date left-date">
+        <span class="month-day">Oct 3rd</span>
+        <span class="year">1958</span>
+      </div>
       <div class="hero-text">
         <p class="remembering">Remembering</p>
-        <h1 class="name">Rick Borden Reid</h1>
-        <div class="dates">
-          <div class="date"><span class="day">Oct 3rd</span><br /><span class="year">1958</span></div>
-          <img src="hero.jpg" alt="Rick Borden Reid" />
-          <div class="date"><span class="day">April 11th</span><br /><span class="year">2025</span></div>
-        </div>
+        <h1>Rick Borden Reid</h1>
+        <img src="images/rick-hero.jpg" alt="Rick Borden Reid" class="hero-photo" />
       </div>
-    </header>
+      <div class="date right-date">
+        <span class="month-day">April 11th</span>
+        <span class="year">2025</span>
+      </div>
+    </div>
+  </header>
 
-    <nav class="navbar" id="navbar">
-      <ul>
-        <li><a href="#compose">Write a Message</a></li>
-        <li><a href="#wall">Read Posts</a></li>
-        <li><a href="#footer">Contact</a></li>
-        <li><a href="#footer">Credit</a></li>
-      </ul>
-    </nav>
+  <nav id="navbar" class="navbar hidden">
+    <ul>
+      <li><a href="#compose">Write a Message</a></li>
+      <li><a href="#wall">Read Posts</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+  </nav>
 
+  <main>
     <section class="quote">
-      <p>
-        "It is not the critic who counts; not the man who points out how the strong man stumbles,
-        or where the doer of deeds could have done them better. The credit belongs to the man who
-        is actually in the arena..."<br /><br />– Theodore Roosevelt
-      </p>
+      <blockquote>
+        "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better.
+        The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again,
+        because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions;
+        who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails,
+        at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."
+        <footer>— Theodore Roosevelt</footer>
+      </blockquote>
     </section>
 
-    <section class="message">
-      <p>
-        This space is a tribute to Rick — a place to share memories, photos, and love.
-        All are welcome to contribute to this lasting celebration of his life.
-      </p>
+    <section class="message-intro">
+      <p>This memorial space is here for friends and family to remember Rick, share messages and images, and celebrate his life together.</p>
     </section>
 
     <section class="compose" id="compose">
       <h2>Share a Memory</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="text" placeholder="Post Title (optional)" />
-        <textarea maxlength="250" placeholder="Write your message..." required></textarea>
-        <input type="file" accept="image/*" multiple />
+      <form id="memory-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="text" name="title" placeholder="Post Title (optional)" />
+        <textarea name="message" maxlength="250" placeholder="Write up to 250 characters..." required></textarea>
+        <input type="file" name="images" accept="image/*" multiple />
         <button type="submit">Post</button>
       </form>
     </section>
 
     <section class="wall" id="wall">
-      <h2>Messages</h2>
-      <!-- Placeholder for messages -->
-      <div class="post">
-        <p><strong>Example User</strong></p>
-        <p>A beautiful soul, forever remembered.</p>
-        <small>May 2025</small>
-      </div>
+      <h2>Messages & Memories</h2>
+      <div class="wall-posts" id="posts-container"></div>
     </section>
 
-    <section class="gallery-preview">
-      <h3><a href="gallery.html">View Rick's Gallery</a></h3>
-      <div>
-        <img src="gallery1.jpg" alt="Rick Photo 1" />
-        <img src="gallery2.jpg" alt="Rick Photo 2" />
-        <img src="gallery3.jpg" alt="Rick Photo 3" />
+    <section class="preview-gallery">
+      <h2><a href="gallery.html">View Rick's Gallery</a></h2>
+      <div class="gallery-preview">
+        <img src="images/gallery1.jpg" alt="Rick 1" />
+        <img src="images/gallery2.jpg" alt="Rick 2" />
+        <img src="images/gallery3.jpg" alt="Rick 3" />
+        <img src="images/gallery4.jpg" alt="Rick 4" />
       </div>
     </section>
+  </main>
 
-    <footer id="footer">
-      <p>Built by Nicole Clark | Coded with help from <a href="https://openai.com" target="_blank">ChatGPT</a></p>
-      <p>
-        <a href="https://www.facebook.com/share/16g83N5nYW/" target="_blank">Rick Reid</a> |
-        <a href="https://www.facebook.com/share/15fJAbTCgF/" target="_blank">Michelle Reid</a>
-      </p>
-    </footer>
+  <footer id="footer">
+    <p>Created by Nicole Clark | <a href="https://openai.com">ChatGPT</a></p>
+  </footer>
 
-    <script>
-      const navbar = document.getElementById('navbar');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 200) {
-          navbar.classList.add('visible');
-        } else {
-          navbar.classList.remove('visible');
-        }
-      });
-    </script>
-  </body>
+  <script src="js/script.js"></script>
+</body>
 </html>
