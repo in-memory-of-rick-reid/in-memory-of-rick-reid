@@ -3,38 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rick's Gallery</title>
+  <title>Rick's Photo Gallery</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
   <style>
     .gallery-page {
-      padding: 60px 20px;
-      text-align: center;
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 1rem;
     }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
     }
     .gallery-grid img {
       width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 6px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
       cursor: pointer;
-      transition: transform 0.3s;
     }
     .gallery-grid img:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
     .lightbox {
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: none;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
       align-items: center;
       justify-content: center;
       z-index: 2000;
@@ -44,76 +44,38 @@
       max-height: 90%;
       border-radius: 10px;
     }
-    .lightbox.show {
+    .lightbox.active {
       display: flex;
-    }
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 20px;
-    }
-    .lightbox-nav button {
-      background: none;
-      color: white;
-      font-size: 2rem;
-      border: none;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <section class="gallery-page">
+  <main class="gallery-page">
     <h1>Rick's Photo Gallery</h1>
-    <div class="gallery-grid" id="gallery">
-      <img src="images/gallery1.jpg" alt="Gallery 1" />
-      <img src="images/gallery2.jpg" alt="Gallery 2" />
-      <img src="images/gallery3.jpg" alt="Gallery 3" />
-      <img src="images/gallery4.jpg" alt="Gallery 4" />
-      <img src="images/gallery5.jpg" alt="Gallery 5" />
+    <div class="gallery-grid">
+      <img src="gallery1.jpg" alt="Rick 1" onclick="openLightbox(this.src)" />
+      <img src="gallery2.jpg" alt="Rick 2" onclick="openLightbox(this.src)" />
+      <img src="gallery3.jpg" alt="Rick 3" onclick="openLightbox(this.src)" />
+      <img src="gallery4.jpg" alt="Rick 4" onclick="openLightbox(this.src)" />
     </div>
-  </section>
-
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-nav">
-      <button id="prev">&#10094;</button>
-      <button id="next">&#10095;</button>
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <img src="" alt="Large View" id="lightbox-img" />
     </div>
-    <img src="" alt="Zoomed" id="lightbox-img" />
-  </div>
+    <div style="text-align:center; margin-top: 2rem;">
+      <a href="index.html">Return to Home</a>
+    </div>
+  </main>
 
   <script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const galleryImages = [...document.querySelectorAll('#gallery img')];
-    let currentIndex = 0;
-
-    galleryImages.forEach((img, i) => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('show');
-        currentIndex = i;
-      });
-    });
-
-    document.getElementById('prev').addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      lightboxImg.src = galleryImages[currentIndex].src;
-    });
-
-    document.getElementById('next').addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      lightboxImg.src = galleryImages[currentIndex].src;
-    });
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox || e.target === lightboxImg) {
-        lightbox.classList.remove('show');
-      }
-    });
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
   </script>
 </body>
 </html>
