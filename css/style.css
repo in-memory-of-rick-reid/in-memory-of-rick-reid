@@ -1,219 +1,166 @@
-/* General Reset and Font Setup */
+/* Updated CSS with centered memory form, larger celebration image, and scroll-triggered nav */
+
 body {
-  margin: 0;
-  padding: 0;
   font-family: 'Inter', sans-serif;
   background-color: #F9F8F7;
+  margin: 0;
   color: #1C1A24;
-  line-height: 1.6;
 }
 
-/* Hero Section */
-.hero {
-  padding: 60px 20px;
+header.hero {
   text-align: center;
-  background-color: #F9F8F7;
+  padding: 40px 20px 10px;
 }
 
-.hero-content.template-style {
+.hero .dates {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.hero-date-box {
-  text-align: center;
-}
-
-.hero-month {
-  display: block;
-  font-size: 18px;
-  font-weight: 400;
-  color: #444;
-}
-
-.hero-year.large {
-  font-size: 48px;
-  font-weight: 700;
-  color: #000;
-}
-
-.hero-photo-frame {
-  text-align: center;
-  max-width: 400px;
-}
-
-.hero-caption {
-  font-size: 18px;
-  color: #555;
-  margin-bottom: 8px;
-  font-family: 'Playfair Display', serif;
-}
-
-.hero-name {
-  font-size: 36px;
-  margin: 0 0 20px;
-  font-family: 'Playfair Display', serif;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: 0 auto 10px;
+  font-size: 24px;
   font-weight: 600;
 }
 
-.hero-photo {
-  width: 100%;
+.hero .name {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.hero img {
+  max-height: 550px;
+  width: auto;
   height: auto;
+  object-fit: contain;
   border-radius: 0;
-  object-fit: cover;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-/* Quote Section */
-.quote {
-  padding: 40px 20px;
-  font-style: italic;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 16px;
-  color: #333;
+.navbar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  width: 100%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.quote-author {
+.navbar.visible {
+  display: flex;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #10122E;
+}
+
+.event img {
   display: block;
-  margin-top: 12px;
-  font-size: 14px;
-  color: #555;
-}
-
-/* Event Section */
-.small-event {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.small-event img {
-  width: 300px;
-  max-width: 90%;
+  max-width: 300px;
+  height: auto;
+  margin: 20px auto 10px;
   border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Message Section */
 .message {
-  padding: 20px;
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 750px;
+  margin: 30px auto;
+  padding: 0 20px;
+  font-size: 18px;
+  line-height: 1.6;
   text-align: center;
-  font-size: 16px;
-  color: #444;
 }
 
-/* Compose Section */
 .compose {
-  background: #FDFCFA;
-  padding: 30px;
   max-width: 600px;
   margin: 40px auto;
-  border-radius: 8px;
+  padding: 0 20px;
 }
 
 .compose h2 {
   text-align: center;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-.compose form input,
-.compose form textarea {
+form input,
+form textarea {
   width: 100%;
-  margin-bottom: 12px;
   padding: 10px;
-  border: 1px solid #ccc;
+  margin-bottom: 15px;
   border-radius: 4px;
-  font-family: inherit;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background: #fff;
 }
 
-.compose form button {
-  width: 100%;
-  padding: 10px;
-  background: #26252C;
+form button {
+  padding: 10px 20px;
+  background-color: #2C3A4F;
   color: white;
   border: none;
   border-radius: 4px;
-  font-weight: bold;
-}
-
-/* Wall Section */
-.wall {
-  padding: 30px;
-  max-width: 800px;
-  margin: 40px auto;
-}
-
-.wall h2 {
-  text-align: center;
-}
-
-.wall-posts {
-  max-height: 300px;
-  overflow-y: auto;
-  border: 1px solid #eee;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.back-to-top {
-  display: block;
-  margin: 20px auto 0;
-  background: transparent;
-  border: 1px solid #26252C;
-  padding: 8px 16px;
-  border-radius: 4px;
+  font-weight: 600;
   cursor: pointer;
 }
 
-/* Gallery Preview */
-.preview-gallery {
-  padding: 30px;
-  text-align: center;
-}
-
-.preview-gallery h2 a {
-  color: #1C1A24;
-  text-decoration: none;
+.wall {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 .gallery-preview {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 800px;
 }
 
 .gallery-preview img {
   width: 120px;
   height: auto;
-  object-fit: cover;
-  border-radius: 4px;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease;
 }
 
 .gallery-preview img:hover {
   transform: scale(1.05);
 }
 
-/* Footer */
 footer {
-  background: #2C3A4F;
+  background-color: #2C3A4F;
   color: white;
-  text-align: center;
   padding: 20px;
+  text-align: center;
   font-size: 14px;
 }
 
-footer a {
-  color: white;
-  text-decoration: underline;
-  margin: 0 5px;
+@media (max-width: 768px) {
+  .hero .dates {
+    font-size: 18px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
 }
