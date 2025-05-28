@@ -16,62 +16,68 @@ h1, h2, h3 {
 img {
   max-width: 100%;
   display: block;
+  border-radius: 8px;
 }
 
 /* Hero Section */
 .hero {
+  position: relative;
   text-align: center;
-  padding: 3em 1em 2em;
+  padding: 4em 1em 2em;
   background-color: #F9F8F7;
 }
 
-.hero-dates {
+.hero .hero-photo {
+  width: 100%;
+  max-width: 500px;
+  margin: 1em auto;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero .remembering {
+  font-size: 1em;
+  color: #666;
+  margin: 0;
+}
+
+.hero .name {
+  font-size: 3em;
+  margin: 0.3em 0;
+}
+
+.hero .dates {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2em;
+  gap: 3em;
   flex-wrap: wrap;
-  margin-bottom: 1.5em;
+  margin-top: 1.5em;
 }
 
-.hero-date {
+.hero .date {
   text-align: center;
   font-size: 1em;
   color: #444;
 }
 
-.month-day {
+.hero .day {
   display: block;
   font-size: 1em;
   font-weight: 500;
 }
 
-.year {
-  font-size: 1.5em;
+.hero .year {
+  font-size: 2.5em;
   font-weight: 700;
 }
 
-.hero-text {
-  text-align: center;
-}
-
-.hero-text .remembering {
-  font-size: 1.1em;
-  color: #666;
-  margin: 0;
-}
-
-.hero-text h1 {
-  font-size: 2.5em;
-  margin: 0.2em 0;
-}
-
-.hero-photo {
-  margin: 1em auto 0;
+.fade-out {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(249, 248, 247, 0), #F9F8F7);
 }
 
 /* Navbar */
@@ -104,6 +110,11 @@ img {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #000;
 }
 
 /* Quote Section */
@@ -114,95 +125,75 @@ img {
   font-style: italic;
   font-size: 1.1em;
   color: #444;
-}
-
-blockquote footer {
-  margin-top: 1em;
-  font-size: 0.9em;
-  color: #777;
-  text-align: right;
-}
-
-/* Compose Section */
-.compose {
-  background: #FDFCFA;
-  padding: 3em 1em;
-  max-width: 700px;
-  margin: 3em auto;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.03);
   text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-input, textarea, button {
-  padding: 0.8em;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1em;
-  width: 100%;
-}
-
-button {
-  background: transparent;
-  border: 2px solid #555;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-}
-
-button:hover {
-  background: #333;
-  color: #fff;
 }
 
 /* Wall Section */
 .wall {
   padding: 2em 1em;
   background: #F6F6F5;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.wall-scroll {
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  padding: 1em;
 }
 
 .wall-posts {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
-  max-width: 700px;
-  margin: 0 auto;
+  gap: 1em;
+}
+
+.wall-posts .post:nth-child(even) {
+  background: #FFFFFF;
+}
+
+.wall-posts .post:nth-child(odd) {
+  background: #F6F6F6;
 }
 
 .wall-posts .post {
-  background: #fff;
   padding: 1em;
   border-radius: 8px;
-  border-left: 4px solid #ccc;
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  border-left: 4px solid #ccc;
 }
 
 /* Gallery Preview */
-.preview-gallery {
-  padding: 2em 1em;
+.gallery-preview {
+  padding: 3em 1em;
   text-align: center;
 }
 
-.gallery-preview {
+.gallery-preview h3 a {
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #333;
+}
+
+.gallery-preview-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1em;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 1.5em auto 0;
 }
 
-.gallery-preview img {
+.gallery-preview-grid img {
   border-radius: 10px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.gallery-preview img:hover {
+.gallery-preview-grid img:hover {
   transform: scale(1.05);
 }
 
@@ -215,9 +206,18 @@ footer {
   background-color: #F9F8F7;
 }
 
+footer a {
+  color: #555;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive Fixes */
 @media (max-width: 600px) {
-  .hero-dates {
+  .hero .dates {
     flex-direction: column;
   }
 
