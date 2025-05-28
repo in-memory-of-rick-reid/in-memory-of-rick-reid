@@ -2,21 +2,23 @@
 const navbar = document.getElementById('navbar');
 const hero = document.getElementById('hero');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > hero.offsetHeight - 50) {
-    navbar.classList.add('show');
-  } else {
-    navbar.classList.remove('show');
-  }
+if (navbar && hero) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > hero.offsetHeight - 50) {
+      navbar.classList.add('show');
+    } else {
+      navbar.classList.remove('show');
+    }
 
-  const topBtn = document.querySelector('.top-button');
-  if (topBtn) {
-    topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-  }
-});
+    const topBtn = document.querySelector('.top-button');
+    if (topBtn) {
+      topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    }
+  });
+}
 
 // Smooth scroll for internal anchor links
-document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
@@ -26,7 +28,7 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
   });
 });
 
-// Memory form post logic (homepage or message.html)
+// Memory form post logic
 const form = document.getElementById('memory-form');
 const postsContainer = document.getElementById('posts-container');
 
@@ -48,12 +50,25 @@ if (form && postsContainer) {
       <h3>${title ? title : 'Untitled'}</h3>
       <p>${message}</p>
       <p><strong>- ${name}</strong></p>
-      ${files.length > 0 ? '<div class="thumbs">' + [...files].slice(0, 3).map(file => `<img src=\"${URL.createObjectURL(file)}\" class=\"thumb\" />`).join('') + '</div>' : ''}
+      ${files.length > 0 ? '<div class="thumbs">' + [...files].slice(0, 3).map(file => `<img src="${URL.createObjectURL(file)}" class="thumb" />`).join('') + '</div>' : ''}
       <small>${new Date().toLocaleDateString()}</small>
-      <br><a href=\"gallery.html\">Gallery</a>
+      <br><a href="gallery.html">Gallery</a>
     `;
 
     postsContainer.prepend(post);
     form.reset();
+
+    const charCount = document.getElementById('charCount');
+    if (charCount) charCount.textContent = '0 / 750';
+  });
+}
+
+// Character counter on message.html
+const textarea = document.querySelector('textarea');
+const charCount = document.getElementById('charCount');
+
+if (textarea && charCount) {
+  textarea.addEventListener('input', () => {
+    charCount.textContent = `${textarea.value.length} / 750`;
   });
 }
