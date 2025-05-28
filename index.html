@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>In Memory of Rick Reid</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   </head>
   <body>
     <header class="hero" id="hero">
@@ -26,6 +26,8 @@
       </div>
       <div class="fade-out"></div>
     </header>
+
+    <div class="divider"></div>
 
     <nav class="navbar" id="navbar">
       <ul>
@@ -60,7 +62,6 @@
             <p>A beautiful soul, forever remembered.</p>
             <small>Posted May 2025</small>
           </div>
-          <!-- More posts will be added dynamically or server-side -->
         </div>
       </div>
     </section>
@@ -82,15 +83,6 @@
       </p>
     </footer>
 
-    <script>
-      const navbar = document.getElementById('navbar');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > document.getElementById('hero').offsetHeight / 2) {
-          navbar.classList.add('visible');
-        } else {
-          navbar.classList.remove('visible');
-        }
-      });
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>
