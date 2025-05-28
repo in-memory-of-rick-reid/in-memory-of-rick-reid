@@ -1,96 +1,228 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>In Memory of Rick Reid</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="hero" id="hero">
-      <div class="hero-text">
-        <p class="remembering">Remembering</p>
-        <h1 class="name">Rick Borden Reid</h1>
-        <div class="dates">
-          <div class="date"><span class="day">Oct 3rd</span><br /><span class="year">1958</span></div>
-          <img src="hero.jpg" alt="Rick Borden Reid" />
-          <div class="date"><span class="day">April 11th</span><br /><span class="year">2025</span></div>
-        </div>
-      </div>
-    </header>
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #F9F8F7;
+  color: #333;
+  line-height: 1.6;
+}
 
-    <nav class="navbar" id="navbar">
-      <ul>
-        <li><a href="#compose">Write a Message</a></li>
-        <li><a href="#wall">Read Posts</a></li>
-        <li><a href="#footer">Contact</a></li>
-        <li><a href="#footer">Credit</a></li>
-      </ul>
-    </nav>
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.5em;
+  color: #222;
+}
 
-    <section class="quote">
-      <p>
-        "It is not the critic who counts; not the man who points out how the strong man stumbles,
-        or where the doer of deeds could have done them better. The credit belongs to the man who
-        is actually in the arena..."<br /><br />– Theodore Roosevelt
-      </p>
-    </section>
+img {
+  max-width: 100%;
+  display: block;
+}
 
-    <section class="message">
-      <p>
-        This space is a tribute to Rick — a place to share memories, photos, and love.
-        All are welcome to contribute to this lasting celebration of his life.
-      </p>
-    </section>
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 3em 1em 2em;
+  background-color: #F9F8F7;
+}
 
-    <section class="compose" id="compose">
-      <h2>Share a Memory</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="text" placeholder="Post Title (optional)" />
-        <textarea maxlength="250" placeholder="Write your message..." required></textarea>
-        <input type="file" accept="image/*" multiple />
-        <button type="submit">Post</button>
-      </form>
-    </section>
+.hero-dates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-bottom: 1.5em;
+}
 
-    <section class="wall" id="wall">
-      <h2>Messages</h2>
-      <!-- Placeholder for messages -->
-      <div class="post">
-        <p><strong>Example User</strong></p>
-        <p>A beautiful soul, forever remembered.</p>
-        <small>May 2025</small>
-      </div>
-    </section>
+.hero-date {
+  text-align: center;
+  font-size: 1em;
+  color: #444;
+}
 
-    <section class="gallery-preview">
-      <h3><a href="gallery.html">View Rick's Gallery</a></h3>
-      <div>
-        <img src="gallery1.jpg" alt="Rick Photo 1" />
-        <img src="gallery2.jpg" alt="Rick Photo 2" />
-        <img src="gallery3.jpg" alt="Rick Photo 3" />
-      </div>
-    </section>
+.month-day {
+  display: block;
+  font-size: 1em;
+  font-weight: 500;
+}
 
-    <footer id="footer">
-      <p>Built by Nicole Clark | Coded with help from <a href="https://openai.com" target="_blank">ChatGPT</a></p>
-      <p>
-        <a href="https://www.facebook.com/share/16g83N5nYW/" target="_blank">Rick Reid</a> |
-        <a href="https://www.facebook.com/share/15fJAbTCgF/" target="_blank">Michelle Reid</a>
-      </p>
-    </footer>
+.year {
+  font-size: 1.5em;
+  font-weight: 700;
+}
 
-    <script>
-      const navbar = document.getElementById('navbar');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 200) {
-          navbar.classList.add('visible');
-        } else {
-          navbar.classList.remove('visible');
-        }
-      });
-    </script>
-  </body>
-</html>
-        
+.hero-text {
+  text-align: center;
+}
+
+.hero-text .remembering {
+  font-size: 1.1em;
+  color: #666;
+  margin: 0;
+}
+
+.hero-text h1 {
+  font-size: 2.5em;
+  margin: 0.2em 0;
+}
+
+.hero-photo {
+  margin: 1em auto 0;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75em;
+  display: none;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+.navbar.visible {
+  display: flex;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Quote Section */
+.quote {
+  margin: 3em auto;
+  max-width: 800px;
+  padding: 0 1em;
+  font-style: italic;
+  font-size: 1.1em;
+  color: #444;
+}
+
+blockquote footer {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #777;
+  text-align: right;
+}
+
+/* Compose Section */
+.compose {
+  background: #FDFCFA;
+  padding: 3em 1em;
+  max-width: 700px;
+  margin: 3em auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.03);
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+input, textarea, button {
+  padding: 0.8em;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  width: 100%;
+}
+
+button {
+  background: transparent;
+  border: 2px solid #555;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+button:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* Wall Section */
+.wall {
+  padding: 2em 1em;
+  background: #F6F6F5;
+}
+
+.wall-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.wall-posts .post {
+  background: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  border-left: 4px solid #ccc;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* Gallery Preview */
+.preview-gallery {
+  padding: 2em 1em;
+  text-align: center;
+}
+
+.gallery-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1em;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gallery-preview img {
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-preview img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2em;
+  font-size: 0.9em;
+  color: #777;
+  background-color: #F9F8F7;
+}
+
+/* Responsive Fixes */
+@media (max-width: 600px) {
+  .hero-dates {
+    flex-direction: column;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
