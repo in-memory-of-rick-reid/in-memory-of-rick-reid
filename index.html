@@ -1,86 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>In Memory of Rick Reid</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&family=Great+Vibes&display=swap" rel="stylesheet">
-</head>
-<body>
+/* ========== Base & Font Setup ========== */
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background-color: #F9F8F7;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-<!-- Hero Section -->
-<header class="hero" id="hero">
-  <p class="hero-subtitle">Remembering</p>
-  <h1 class="hero-title">Rick Borden Reid</h1>
-  <div class="hero-wrapper">
-    <div class="hero-date">
-      <span class="date-top">October 3rd</span>
-      <span class="date-year">1958</span>
-    </div>
-    <img src="rick-hero.jpg" alt="Rick Borden Reid" class="hero-photo" />
-    <div class="hero-date">
-      <span class="date-top">April 11th</span>
-      <span class="date-year">2025</span>
-    </div>
-  </div>
-  <div class="fade-out"></div>
-</header>
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: #222;
+  margin-bottom: 0.5em;
+}
 
-<!-- Navigation Bar -->
-<nav class="navbar visible" id="navbar">
-  <ul>
-    <li><a href="message.html" class="nav-btn">Write a Message</a></li>
-    <li><a href="#wall" class="nav-btn">Read Memories</a></li>
-    <li><a href="gallery.html" class="nav-btn">Gallery</a></li>
-    <li><a href="#footer" class="nav-btn">Contact</a></li>
-    <li><a href="#footer" class="nav-btn">Credit</a></li>
-  </ul>
-</nav>
+p {
+  font-family: 'DM Sans', sans-serif;
+}
 
-<div class="divider"></div>
+/* ========== Hero Section ========== */
+.hero {
+  text-align: center;
+  padding: 2em 1em 0;
+  background-color: #F9F8F7;
+  position: relative;
+}
 
-<!-- Quote Section -->
-<section class="quote">
-  <p>
-    "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. 
-    The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."
-  </p>
-  <p class="quote-author">– Theodore Roosevelt</p>
-</section>
+.hero-subtitle {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 0.3em;
+  font-weight: 500;
+}
 
-<!-- Memory Wall -->
-<section class="wall" id="wall">
-  <h2>Messages for Rick</h2>
-  <div class="wall-scroll">
-    <div class="wall-posts" id="posts-container">
-      <!-- Posts will be inserted here dynamically -->
-    </div>
-  </div>
-</section>
+.hero-title {
+  font-size: 2.5em;
+  margin: 0 0 1em;
+  font-family: 'Playfair Display', serif;
+}
 
-<!-- Gallery Preview -->
-<section class="gallery-preview">
-  <h3><a href="gallery.html">View Rick's Gallery</a></h3>
-  <div class="gallery-preview-grid">
-    <img src="gallery1.jpg" alt="Rick Photo 1" />
-    <img src="gallery2.jpg" alt="Rick Photo 2" />
-    <img src="gallery3.jpg" alt="Rick Photo 3" />
-  </div>
-</section>
+.hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-<!-- Footer -->
-<footer id="footer">
-  <p>Nicole Clark | <a href="https://openai.com" target="_blank">ChatGPT</a></p>
-  <div class="footer-links">
-    <a href="https://www.facebook.com/share/16g83N5nYW/" target="_blank">Rick's Facebook</a>
-    <a href="https://www.facebook.com/share/15fJAbTCgF/" target="_blank">Michelle's Facebook</a>
-  </div>
-</footer>
+.hero-photo {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
 
-<!-- Scroll to Top Button -->
-<a href="#hero" class="scroll-top">↑</a>
+.hero-date {
+  text-align: center;
+  line-height: 1.4;
+}
 
-<script src="js/script.js"></script>
-</body>
-</html>
+.date-top {
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #555;
+}
+
+.date-year {
+  display: block;
+  font-size: 2em;
+  font-weight: 700;
+  color: #222;
+}
+
+.fade-out {
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(249,248,247,0), #F9F8F7);
+}
+
+/* ========== Quote Section ========== */
+.quote {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5em;
+  text-align: center;
+  max-width: 800px;
+  margin: 3em auto;
+  color: #4A4A4A;
+  line-height: 1.8;
+}
+
+.quote-author {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1em;
+  margin-top: 1em;
+  color: #666;
+  font-style: normal;
+}
+
+/* ========== Gallery Preview ========== */
+.gallery-preview {
+  padding: 3em 1em;
+  text-align: center;
+}
+
+.gallery-preview h3 a {
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333;
+}
+
+.gallery-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1em;
+  max-width: 900px;
+  margin: 1.5em auto 0;
+}
+
+.gallery-preview-grid img {
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  object-fit: cover;
+  width: 100%;
+}
+
+.gallery-preview-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ========== Footer ========== */
+footer {
+  text-align: center;
+  padding: 2em;
+  font-size: 0.9em;
+  color: #777;
+  background-color: #F9F8F7;
+}
+
+footer a {
+  color: #555;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 0.5em;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  padding: 6px 12px;
+  background-color: #eee;
+  color: #333;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background 0.2s ease;
+}
+
+.footer-links a:hover {
+  background-color: #ddd;
+}
+
+/* ========== Responsive Fixes ========== */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  .hero-title {
+    font-size: 2em;
+  }
+
+  .hero-photo {
+    max-width: 90%;
+  }
+
+  .date-year {
+    font-size: 1.5em;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .navbar a.nav-btn {
+    width: auto;
+    padding: 10px 16px;
+    font-size: 1em;
+    text-align: center;
+  }
+}
