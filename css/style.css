@@ -282,3 +282,25 @@ footer a:hover {
     max-width: 80%;
   }
 }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 0.5em;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  padding: 6px 12px;
+  background-color: #eee;
+  color: #333;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background 0.2s ease;
+}
+
+.footer-links a:hover {
+  background-color: #ddd;
+}
