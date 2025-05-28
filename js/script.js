@@ -1,23 +1,21 @@
-// Show navbar after scrolling past hero
+// ===== Sticky Navbar and Scroll-to-Top Button =====
 const navbar = document.getElementById('navbar');
 const hero = document.getElementById('hero');
+const scrollTopBtn = document.querySelector('.scroll-top');
 
-if (navbar && hero) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > hero.offsetHeight - 50) {
-      navbar.classList.add('show');
-    } else {
-      navbar.classList.remove('show');
-    }
+window.addEventListener('scroll', () => {
+  if (window.scrollY > hero.offsetHeight - 50) {
+    navbar.classList.add('visible');
+  } else {
+    navbar.classList.remove('visible');
+  }
 
-    const topBtn = document.querySelector('.top-button');
-    if (topBtn) {
-      topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    }
-  });
-}
+  if (scrollTopBtn) {
+    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  }
+});
 
-// Smooth scroll for internal anchor links
+// ===== Smooth Scroll for Anchor Links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
@@ -28,7 +26,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Memory form post logic
+// ===== Message Form Logic (Wall Posts) =====
 const form = document.getElementById('memory-form');
 const postsContainer = document.getElementById('posts-container');
 
@@ -46,13 +44,33 @@ if (form && postsContainer) {
     const post = document.createElement('div');
     post.classList.add('post');
 
+    const date = new Date();
+    const dateString = date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    let thumbs = '';
+    if (files.length > 0) {
+      thumbs =
+        '<div class="thumbs">' +
+        [...files]
+          .slice(0, 3)
+          .map(
+            file => `<img src="${URL.createObjectURL(file)}" class="thumb" style="max-width: 60px; border-radius: 6px; margin-right: 6px;" />`
+          )
+          .join('') +
+        '</div>';
+    }
+
     post.innerHTML = `
-      <h3>${title ? title : 'Untitled'}</h3>
+      <h3>${title || 'Untitled'}</h3>
       <p>${message}</p>
       <p><strong>- ${name}</strong></p>
-      ${files.length > 0 ? '<div class="thumbs">' + [...files].slice(0, 3).map(file => `<img src="${URL.createObjectURL(file)}" class="thumb" />`).join('') + '</div>' : ''}
-      <small>${new Date().toLocaleDateString()}</small>
-      <br><a href="gallery.html">Gallery</a>
+      ${thumbs}
+      <small>${dateString}</small><br>
+      ${files.length > 0 ? '<a href="gallery.html" class="view-gallery">View in Gallery</a>' : ''}
     `;
 
     postsContainer.prepend(post);
@@ -63,7 +81,7 @@ if (form && postsContainer) {
   });
 }
 
-// Character counter on message.html
+// ===== Character Counter on Textarea =====
 const textarea = document.querySelector('textarea');
 const charCount = document.getElementById('charCount');
 
