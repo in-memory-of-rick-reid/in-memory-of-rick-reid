@@ -1,104 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Share a Memory of Rick</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Message Forum | Rick Borden Reid</title>
   <style>
-    .compose-page {
-      max-width: 650px;
-      margin: 3em auto;
-      padding: 2em;
-      background: #FDFCFA;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.03);
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #fff;
+      color: #111;
     }
 
-    .compose-page h2 {
-      text-align: center;
-      margin-bottom: 1em;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-    }
-
-    input, textarea, button {
-      padding: 0.8em;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 1em;
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      font-family: 'DM Sans', sans-serif;
+      background: white;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 24px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    textarea {
-      resize: none;
-      min-height: 130px;
-      max-height: 130px;
-      overflow-y: auto;
-    }
-
-    .char-count {
-      text-align: right;
-      font-size: 0.9em;
-      color: #777;
-      margin-top: -0.5em;
-    }
-
-    button {
-      background: transparent;
-      border: 2px solid #555;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background: #333;
-      color: #fff;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 1.5em;
-      text-align: center;
+    nav a {
       text-decoration: none;
-      color: #444;
-      font-weight: 500;
+      color: black;
+      font-size: 16px;
+      margin-left: 20px;
     }
 
-    .back-link:hover {
-      text-decoration: underline;
+    .forum-wrapper {
+      margin-top: 80px;
+      padding: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .post {
+      border-bottom: 1px solid #ccc;
+      padding: 12px 0;
+    }
+
+    .post img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 12px;
+    }
+
+    .date {
+      font-size: 14px;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <main class="compose-page">
-    <h2>Share a Memory of Rick</h2>
-    <form id="memory-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="text" name="title" placeholder="Post Title (optional)" />
-      <textarea name="message" maxlength="750" placeholder="Write up to 750 characters..." required></textarea>
-      <div class="char-count" id="charCount">0 / 750</div>
-      <input type="file" name="images" accept="image/*" multiple />
-      <button type="submit">Post</button>
-    </form>
-    <a href="index.html" class="back-link">← Back to Homepage</a>
-  </main>
 
-  <script>
-    const textarea = document.querySelector('textarea');
-    const charCount = document.getElementById('charCount');
+  <nav>
+    <div>
+      <a href="index.html" style="font-weight: bold;">Home</a>
+    </div>
+    <div>
+      <a href="message.html">Message Forum</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+  </nav>
 
-    textarea.addEventListener('input', () => {
-      charCount.textContent = `${textarea.value.length} / 750`;
-    });
-  </script>
+  <div class="forum-wrapper">
+    <!-- Example Post -->
+    <div class="post">
+      <p class="date">May 20, 2024</p>
+      <p>Rick was one of the kindest souls I’ve ever met. He always made me laugh when I needed it most.</p>
+      <img src="images/post1.jpg" alt="Rick memory">
+    </div>
+
+    <!-- Add more posts below -->
+  </div>
+
 </body>
 </html>
