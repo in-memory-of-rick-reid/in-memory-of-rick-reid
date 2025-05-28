@@ -4,11 +4,15 @@ const hero = document.getElementById('hero');
 const scrollTopBtn = document.querySelector('.scroll-top');
 
 window.addEventListener('scroll', () => {
+  if (window.innerWidth > 600) {
   if (window.scrollY > hero.offsetHeight - 50) {
     navbar.classList.add('visible');
   } else {
     navbar.classList.remove('visible');
   }
+} else {
+  navbar.classList.add('visible');
+}
 
   if (scrollTopBtn) {
     scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
