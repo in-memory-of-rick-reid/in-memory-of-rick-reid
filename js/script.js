@@ -65,13 +65,12 @@ if (form && postsContainer) {
     }
 
     post.innerHTML = `
-      <h3>${title || 'Untitled'}</h3>
-      <p>${message}</p>
-      <p><strong>- ${name}</strong></p>
-      ${thumbs}
-      <small>${dateString}</small><br>
-      ${files.length > 0 ? '<a href="gallery.html" class="view-gallery">View in Gallery</a>' : ''}
-    `;
+  <p><strong>${name}</strong></p>
+  ${title ? `<p><em>${title}</em></p>` : ''}
+  <p>${message}</p>
+  ${thumbs}
+  <small>${dateString}</small>
+`;
 
     postsContainer.prepend(post);
     form.reset();
