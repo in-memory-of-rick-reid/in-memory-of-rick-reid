@@ -1,80 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rick Borden Reid Memorial</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: #fff;
-      color: #111;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      border-bottom: 1px solid #ddd;
-      padding: 12px 24px;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: black;
-      font-size: 16px;
-      margin-left: 20px;
-    }
-
-    .hero {
-      margin-top: 80px;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .hero img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 16px;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin: 20px 0 10px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #555;
-      margin-bottom: 10px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In Memory of Rick Reid</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="hero" id="hero">
+    <div class="hero-text">
+      <p class="remembering">Remembering</p>
+      <h1 class="name">Rick Borden Reid</h1>
+      <div class="dates">
+        <div class="date"><span class="day">October 3rd</span><br /><span class="year">1958</span></div>
+        <img src="rick-hero.jpg" alt="Rick Borden Reid" class="hero-photo" />
+        <div class="date"><span class="day">April 11th</span><br /><span class="year">2025</span></div>
+      </div>
+    </div>
+    <div class="fade-out"></div>
+  </header>
 
-  <nav>
-    <div>
-      <a href="index.html" style="font-weight: bold;">Home</a>
-    </div>
-    <div>
-      <a href="message-forum.html">Message Forum</a>
-      <a href="gallery.html">Gallery</a>
-    </div>
+  <nav class="navbar" id="navbar">
+    <ul>
+      <li><a href="message.html">Write a Message</a></li>
+      <li><a href="#wall">Read Posts</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="#footer">Contact</a></li>
+      <li><a href="#footer">Credit</a></li>
+    </ul>
   </nav>
 
-  <div class="hero">
-    <img src="rick-hero.jpg" alt="Rick Borden Reid">
-    <h1>Rick Borden Reid</h1>
-    <p>August 3, 1967 – May 17, 2024</p>
-    <p>Celebrating a life well-lived and deeply loved.</p>
-  </div>
+  <div class="divider"></div>
 
+  <section class="quote">
+    <p>
+      "It is not the critic who counts; not the man who points out how the strong man stumbles,
+      or where the doer of deeds could have done them better. The credit belongs to the man who
+      is actually in the arena..."<br /><br />– Theodore Roosevelt
+    </p>
+  </section>
+
+  <section class="wall" id="wall">
+    <h2 style="text-align: center;">Messages</h2>
+    <div class="wall-scroll">
+      <div class="wall-posts" id="posts-container">
+        <div class="post">
+          <p><strong>Example User</strong></p>
+          <p>A beautiful soul, forever remembered.</p>
+          <small>May 2025</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-preview">
+    <h3><a href="gallery.html">View Rick's Gallery</a></h3>
+    <div class="gallery-preview-grid">
+      <img src="gallery1.jpg" alt="Rick Photo 1" />
+      <img src="gallery2.jpg" alt="Rick Photo 2" />
+      <img src="gallery3.jpg" alt="Rick Photo 3" />
+    </div>
+  </section>
+
+  <footer id="footer">
+    <p>Built by Nicole Clark | Coded with help from <a href="https://openai.com" target="_blank">ChatGPT</a></p>
+    <p>
+      <a href="https://www.facebook.com/share/16g83N5nYW/" target="_blank">Rick Reid</a> |
+      <a href="https://www.facebook.com/share/15fJAbTCgF/" target="_blank">Michelle Reid</a>
+    </p>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const hero = document.getElementById('hero');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > hero.offsetHeight - 50) {
+        navbar.classList.add('visible');
+      } else {
+        navbar.classList.remove('visible');
+      }
+    });
+  </script>
 </body>
 </html>
