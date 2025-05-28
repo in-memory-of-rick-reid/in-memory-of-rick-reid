@@ -5,14 +5,14 @@ const scrollTopBtn = document.querySelector('.scroll-top');
 
 window.addEventListener('scroll', () => {
   if (window.innerWidth > 600) {
-  if (window.scrollY > hero.offsetHeight - 50) {
-    navbar.classList.add('visible');
+    if (window.scrollY > hero.offsetHeight - 50) {
+      navbar.classList.add('visible');
+    } else {
+      navbar.classList.remove('visible');
+    }
   } else {
-    navbar.classList.remove('visible');
+    navbar.classList.add('visible');
   }
-} else {
-  navbar.classList.add('visible'); // mobile always shows it
-}
 
   if (scrollTopBtn) {
     scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -69,12 +69,12 @@ if (form && postsContainer) {
     }
 
     post.innerHTML = `
-  <p><strong>${name}</strong></p>
-  ${title ? `<p><em>${title}</em></p>` : ''}
-  <p>${message}</p>
-  ${thumbs}
-  <small>${dateString}</small>
-`;
+      <p><strong>${name}</strong></p>
+      ${title ? `<p><em>${title}</em></p>` : ''}
+      <p>${message}</p>
+      ${thumbs}
+      <small>${dateString}</small>
+    `;
 
     postsContainer.prepend(post);
     form.reset();
@@ -93,3 +93,10 @@ if (textarea && charCount) {
     charCount.textContent = `${textarea.value.length} / 750`;
   });
 }
+
+// ===== Lightbox ESC Key Support =====
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && window.location.hash.startsWith('#img')) {
+    history.pushState('', document.title, window.location.pathname + window.location.search);
+  }
+});
