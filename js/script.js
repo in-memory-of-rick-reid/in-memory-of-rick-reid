@@ -11,7 +11,7 @@ window.addEventListener('scroll', () => {
     navbar.classList.remove('visible');
   }
 } else {
-  navbar.classList.add('visible');
+  navbar.classList.add('visible'); // mobile always shows it
 }
 
   if (scrollTopBtn) {
