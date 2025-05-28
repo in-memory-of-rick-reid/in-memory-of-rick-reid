@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rick's Gallery</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=DM+Sans:wght@400;500&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <style>
     .gallery-container {
       max-width: 1000px;
       margin: 4em auto;
       padding: 1em;
+      text-align: center;
     }
 
     .gallery-grid {
@@ -48,6 +49,7 @@
     .lightbox img {
       max-width: 90%;
       max-height: 90%;
+      object-fit: contain;
       border-radius: 12px;
     }
 
@@ -64,7 +66,7 @@
       font-weight: 600;
       text-decoration: none;
       color: #333;
-      z-index: 999;
+      z-index: 1001;
     }
 
     .back-button {
@@ -79,10 +81,11 @@
   </style>
 </head>
 <body>
+
   <a href="index.html" class="back-button">← Back to Homepage</a>
 
   <div class="gallery-container">
-    <h1 style="text-align: center;">Rick's Gallery</h1>
+    <h1 style="font-family: 'Montserrat', sans-serif;">Rick's Gallery</h1>
     <div class="gallery-grid">
       <a href="#img1"><img src="gallery1.jpg" alt="Rick 1" /></a>
       <a href="#img2"><img src="gallery2.jpg" alt="Rick 2" /></a>
