@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
     .compose-page {
-      max-width: 700px;
-      margin: 4em auto;
+      max-width: 650px;
+      margin: 3em auto;
       padding: 2em;
       background: #FDFCFA;
       border-radius: 12px;
@@ -25,11 +25,11 @@
     form {
       display: flex;
       flex-direction: column;
-      gap: 1.5em;
+      gap: 1em;
     }
 
     input, textarea, button {
-      padding: 0.9em;
+      padding: 0.8em;
       border: 1px solid #ddd;
       border-radius: 8px;
       font-size: 1em;
@@ -38,14 +38,17 @@
     }
 
     textarea {
-      resize: vertical;
-      min-height: 120px;
+      resize: none;
+      min-height: 130px;
+      max-height: 130px;
+      overflow-y: auto;
     }
 
     .char-count {
       text-align: right;
       font-size: 0.9em;
       color: #777;
+      margin-top: -0.5em;
     }
 
     button {
@@ -63,7 +66,7 @@
 
     .back-link {
       display: inline-block;
-      margin-top: 2em;
+      margin-top: 1.5em;
       text-align: center;
       text-decoration: none;
       color: #444;
