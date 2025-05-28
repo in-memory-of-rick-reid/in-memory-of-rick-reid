@@ -92,15 +92,25 @@
 
   <!-- Lightboxes -->
   <div id="img1" class="lightbox">
-    <a href="#" class="lightbox-close"><img src="gallery1.jpg" alt="Rick 1" /></a>
+    <a href="#"><img src="gallery1.jpg" alt="Rick 1" /></a>
   </div>
   <div id="img2" class="lightbox">
-    <a href="#" class="lightbox-close"><img src="gallery2.jpg" alt="Rick 2" /></a>
+    <a href="#"><img src="gallery2.jpg" alt="Rick 2" /></a>
   </div>
   <div id="img3" class="lightbox">
-    <a href="#" class="lightbox-close"><img src="gallery3.jpg" alt="Rick 3" /></a>
+    <a href="#"><img src="gallery3.jpg" alt="Rick 3" /></a>
   </div>
 
   <a class="top-button" href="#top">↑ Back to Top</a>
+
+  <script>
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (window.location.hash.startsWith('#img')) {
+          history.pushState("", document.title, window.location.pathname + window.location.search);
+        }
+      }
+    });
+  </script>
 </body>
 </html>
