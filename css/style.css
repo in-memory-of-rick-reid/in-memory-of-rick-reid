@@ -317,7 +317,7 @@ footer a:hover {
 
 @media (max-width: 600px) {
   body {
-    padding-top: 60px; /* make room for fixed nav */
+    padding-top: 100px; /* enough space for navbar */
   }
 
   .hero-wrapper {
@@ -331,23 +331,30 @@ footer a:hover {
     align-items: center;
     padding: 1em 0;
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
 
   .navbar ul {
     flex-direction: column;
-    gap: 0.8em;
-    padding: 0;
+    gap: 0.5em;
     margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   .navbar a.nav-btn {
     font-size: 1em;
     background-color: #eee;
-    padding: 8px 16px;
+    padding: 10px 16px;
     border-radius: 6px;
     width: 90%;
     text-align: center;
+    color: #333;
+    text-decoration: none;
   }
 
   .hero-title {
@@ -358,4 +365,3 @@ footer a:hover {
     max-width: 80%;
   }
 }
-
