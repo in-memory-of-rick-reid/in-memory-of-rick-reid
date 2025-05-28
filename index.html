@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>In Memory of Rick Reid</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
   </head>
   <body>
     <header class="hero" id="hero">
@@ -12,17 +13,24 @@
         <p class="remembering">Remembering</p>
         <h1 class="name">Rick Borden Reid</h1>
         <div class="dates">
-          <div class="date"><span class="day">Oct 3rd</span><br /><span class="year">1958</span></div>
-          <img src="hero.jpg" alt="Rick Borden Reid" />
-          <div class="date"><span class="day">April 11th</span><br /><span class="year">2025</span></div>
+          <div class="date">
+            <span class="day">October 3rd</span><br />
+            <span class="year">1958</span>
+          </div>
+          <img src="rick-hero.jpg" alt="Rick Borden Reid" class="hero-photo" />
+          <div class="date">
+            <span class="day">April 11th</span><br />
+            <span class="year">2025</span>
+          </div>
         </div>
       </div>
+      <div class="fade-out"></div>
     </header>
 
     <nav class="navbar" id="navbar">
       <ul>
-        <li><a href="#compose">Write a Message</a></li>
-        <li><a href="#wall">Read Posts</a></li>
+        <li><a href="message.html">Write a Message</a></li>
+        <li><a href="#wall">Memories</a></li>
         <li><a href="#footer">Contact</a></li>
         <li><a href="#footer">Credit</a></li>
       </ul>
@@ -32,41 +40,34 @@
       <p>
         "It is not the critic who counts; not the man who points out how the strong man stumbles,
         or where the doer of deeds could have done them better. The credit belongs to the man who
-        is actually in the arena..."<br /><br />– Theodore Roosevelt
+        is actually in the arena, whose face is marred by dust and sweat and blood; who strives
+        valiantly; who errs, who comes short again and again, because there is no effort without
+        error and shortcoming; but who does actually strive to do the deeds; who knows great
+        enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best
+        knows in the end the triumph of high achievement, and who at the worst, if he fails, at
+        least fails while daring greatly, so that his place shall never be with those cold and
+        timid souls who neither know victory nor defeat."
+        <br /><br />– Theodore Roosevelt
       </p>
-    </section>
-
-    <section class="message">
-      <p>
-        This space is a tribute to Rick — a place to share memories, photos, and love.
-        All are welcome to contribute to this lasting celebration of his life.
-      </p>
-    </section>
-
-    <section class="compose" id="compose">
-      <h2>Share a Memory</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="text" placeholder="Post Title (optional)" />
-        <textarea maxlength="250" placeholder="Write your message..." required></textarea>
-        <input type="file" accept="image/*" multiple />
-        <button type="submit">Post</button>
-      </form>
     </section>
 
     <section class="wall" id="wall">
       <h2>Messages</h2>
-      <!-- Placeholder for messages -->
-      <div class="post">
-        <p><strong>Example User</strong></p>
-        <p>A beautiful soul, forever remembered.</p>
-        <small>May 2025</small>
+      <div class="wall-scroll">
+        <div class="wall-posts">
+          <div class="post">
+            <p><strong>Example User</strong></p>
+            <p>A beautiful soul, forever remembered.</p>
+            <small>Posted May 2025</small>
+          </div>
+          <!-- More posts will be added dynamically or server-side -->
+        </div>
       </div>
     </section>
 
     <section class="gallery-preview">
       <h3><a href="gallery.html">View Rick's Gallery</a></h3>
-      <div>
+      <div class="gallery-preview-grid">
         <img src="gallery1.jpg" alt="Rick Photo 1" />
         <img src="gallery2.jpg" alt="Rick Photo 2" />
         <img src="gallery3.jpg" alt="Rick Photo 3" />
@@ -84,7 +85,7 @@
     <script>
       const navbar = document.getElementById('navbar');
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 200) {
+        if (window.scrollY > document.getElementById('hero').offsetHeight / 2) {
           navbar.classList.add('visible');
         } else {
           navbar.classList.remove('visible');
