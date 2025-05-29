@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rick's Gallery</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&family=Great+Vibes&family=Allura&display=swap" rel="stylesheet">
   <style>
     .gallery-container {
       max-width: 1000px;
@@ -107,6 +107,25 @@
 
   <a class="top-button" href="#top">↑ Back to Top</a>
 
-  <script src="js/script.js"></script>
+  <script>
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && window.location.hash.startsWith('#img')) {
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+      }
+    });
+
+    const backBtn = document.querySelector('.back-button');
+    const topBtn = document.querySelector('.top-button');
+
+    function toggleGalleryButtons() {
+      const isLightboxOpen = window.location.hash.startsWith('#img');
+      if (backBtn) backBtn.style.display = isLightboxOpen ? 'none' : 'block';
+      if (topBtn) topBtn.style.display = isLightboxOpen || window.scrollY < 500 ? 'none' : 'block';
+    }
+
+    window.addEventListener('hashchange', toggleGalleryButtons);
+    window.addEventListener('scroll', toggleGalleryButtons);
+    document.addEventListener('DOMContentLoaded', toggleGalleryButtons);
+  </script>
 </body>
 </html>
