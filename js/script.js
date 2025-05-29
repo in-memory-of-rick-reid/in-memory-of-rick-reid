@@ -4,18 +4,14 @@ const hero = document.getElementById('hero');
 const scrollTopBtn = document.querySelector('.scroll-top');
 
 window.addEventListener('scroll', () => {
-  if (window.innerWidth > 600) {
-    if (window.scrollY > hero.offsetHeight - 50) {
-      navbar.classList.add('visible');
-    } else {
-      navbar.classList.remove('visible');
-    }
-  } else {
+  if (window.scrollY > hero.offsetHeight - 50) {
     navbar.classList.add('visible');
+  } else {
+    navbar.classList.remove('visible');
   }
 
   if (scrollTopBtn) {
-    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    scrollTopBtn.style.display = window.scrollY > 500 ? 'block' : 'none';
   }
 });
 
@@ -94,9 +90,23 @@ if (textarea && charCount) {
   });
 }
 
-// ===== Lightbox ESC Key Support =====
+// ===== Lightbox ESC Key Support + Hide Buttons =====
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && window.location.hash.startsWith('#img')) {
     history.pushState('', document.title, window.location.pathname + window.location.search);
   }
 });
+
+const lightboxes = document.querySelectorAll('.lightbox');
+const backBtn = document.querySelector('.back-button');
+const topBtn = document.querySelector('.top-button');
+
+function toggleGalleryButtons() {
+  const isLightboxOpen = window.location.hash.startsWith('#img');
+  if (backBtn) backBtn.style.display = isLightboxOpen ? 'none' : 'block';
+  if (topBtn) topBtn.style.display = isLightboxOpen || window.scrollY < 500 ? 'none' : 'block';
+}
+
+window.addEventListener('hashchange', toggleGalleryButtons);
+window.addEventListener('scroll', toggleGalleryButtons);
+document.addEventListener('DOMContentLoaded', toggleGalleryButtons);
