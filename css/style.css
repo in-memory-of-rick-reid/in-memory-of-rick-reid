@@ -217,7 +217,7 @@ footer a:hover {
   background-color: #ddd;
 }
 
-/* ========== Navigation Bar ========== */
+/* ========== Desktop Navigation Bar ========== */
 .navbar {
   position: fixed;
   top: 0;
@@ -281,26 +281,35 @@ footer a:hover {
   background-color: #eee;
 }
 
+/* ========== Mobile Nav at Bottom ========== */
 @media (max-width: 768px) {
   body {
-    padding-bottom: 4em;
+    padding-bottom: 5em;
   }
 
-  .hero-wrapper {
-    flex-direction: column;
-    gap: 1.5em;
+  .navbar {
+    top: auto;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0.4em 0.5em;
+    background-color: #fff;
   }
 
-  .hero-title {
-    font-size: 2em;
+  .navbar ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 0.3em;
+    justify-items: center;
+    align-items: center;
   }
 
-  .hero-photo {
-    max-width: 90%;
-    height: auto;
+  .navbar ul li {
+    font-size: 0.8em;
   }
 
-  .date-year {
-    font-size: 1.5em;
+  .navbar a.nav-btn {
+    font-size: 0.8em;
+    padding: 4px 6px;
   }
 }
