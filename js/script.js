@@ -4,14 +4,26 @@ const hero = document.getElementById('hero');
 const scrollTopBtn = document.querySelector('.scroll-top');
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > hero.offsetHeight - 50) {
-    navbar.classList.add('visible');
+  const scrolledPastHero = window.scrollY > hero.offsetHeight - 50;
+
+  if (window.innerWidth > 768) {
+    // Desktop behavior
+    if (scrolledPastHero) {
+      navbar.classList.add('visible');
+    } else {
+      navbar.classList.remove('visible');
+    }
   } else {
-    navbar.classList.remove('visible');
+    // Mobile: Only show nav after scrolling past hero
+    if (scrolledPastHero) {
+      navbar.classList.add('visible');
+    } else {
+      navbar.classList.remove('visible');
+    }
   }
 
   if (scrollTopBtn) {
-    scrollTopBtn.style.display = window.scrollY > 500 ? 'block' : 'none';
+    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
   }
 });
 
@@ -90,23 +102,9 @@ if (textarea && charCount) {
   });
 }
 
-// ===== Lightbox ESC Key Support + Hide Buttons =====
+// ===== Lightbox ESC Key Support =====
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && window.location.hash.startsWith('#img')) {
     history.pushState('', document.title, window.location.pathname + window.location.search);
   }
 });
-
-const lightboxes = document.querySelectorAll('.lightbox');
-const backBtn = document.querySelector('.back-button');
-const topBtn = document.querySelector('.top-button');
-
-function toggleGalleryButtons() {
-  const isLightboxOpen = window.location.hash.startsWith('#img');
-  if (backBtn) backBtn.style.display = isLightboxOpen ? 'none' : 'block';
-  if (topBtn) topBtn.style.display = isLightboxOpen || window.scrollY < 500 ? 'none' : 'block';
-}
-
-window.addEventListener('hashchange', toggleGalleryButtons);
-window.addEventListener('scroll', toggleGalleryButtons);
-document.addEventListener('DOMContentLoaded', toggleGalleryButtons);
