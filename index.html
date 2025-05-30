@@ -62,10 +62,8 @@
 <!-- Gallery Preview -->
 <section class="gallery-preview">
   <h3><a href="gallery.html">View Rick's Gallery</a></h3>
-  <div class="gallery-preview-grid">
-    <img src="gallery1.jpg" alt="Rick Photo 1" />
-    <img src="gallery2.jpg" alt="Rick Photo 2" />
-    <img src="gallery3.jpg" alt="Rick Photo 3" />
+  <div class="gallery-preview-grid" id="previewGrid">
+    <!-- Images inserted by JavaScript -->
   </div>
 </section>
 
@@ -82,5 +80,24 @@
 <a href="#hero" class="scroll-top">↑</a>
 
 <script src="js/script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const previewGrid = document.getElementById("previewGrid");
+    const previewImages = [
+      { src: "images/gallery1.jpg", alt: "Rick Photo 1" },
+      { src: "images/gallery2.2.jpg", alt: "Rick Photo 2" },
+      { src: "images/gallery3.jpg", alt: "Rick Photo 3" }
+    ];
+
+    const shuffled = previewImages.sort(() => 0.5 - Math.random());
+    shuffled.forEach(img => {
+      const el = document.createElement("img");
+      el.src = img.src;
+      el.alt = img.alt;
+      el.loading = "lazy";
+      previewGrid.appendChild(el);
+    });
+  });
+</script>
 </body>
 </html>
