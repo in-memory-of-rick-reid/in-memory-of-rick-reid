@@ -215,7 +215,7 @@ footer a:hover {
 
 /* ========== Navbar Buttons ========== */
 .navbar {
-  display: flex;
+  display: none;
   justify-content: center;
   padding: 1em 0;
   background-color: #fff;
@@ -226,6 +226,10 @@ footer a:hover {
   left: 0;
   width: 100%;
   transition: top 0.3s;
+}
+
+.navbar.visible {
+  display: flex;
 }
 
 .navbar ul {
