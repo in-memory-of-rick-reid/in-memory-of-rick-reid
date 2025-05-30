@@ -7,14 +7,12 @@ window.addEventListener('scroll', () => {
   const scrolledPastHero = window.scrollY > hero.offsetHeight - 50;
 
   if (window.innerWidth > 768) {
-    // Desktop behavior
     if (scrolledPastHero) {
       navbar.classList.add('visible');
     } else {
       navbar.classList.remove('visible');
     }
   } else {
-    // Mobile: Only show nav after scrolling past hero
     if (scrolledPastHero) {
       navbar.classList.add('visible');
     } else {
