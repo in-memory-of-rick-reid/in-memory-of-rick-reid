@@ -263,25 +263,9 @@ input[type="submit"]:hover {
   text-decoration: none;
 }
 
-/* ========== Scroll-to-Top Button ========== */
+/* ========== Scroll-to-Top Button (Disabled on Homepage) ========== */
 .scroll-top {
-  position: fixed;
-  bottom: 1.5em;
-  right: 1.5em;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 0.4em 0.6em;
-  text-decoration: none;
-  color: #333;
-  font-size: 1.2em;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: none;
-  z-index: 1001;
-}
-
-.scroll-top:hover {
-  background-color: #eee;
+  display: none !important;
 }
 
 /* ========== Responsive Fixes ========== */
