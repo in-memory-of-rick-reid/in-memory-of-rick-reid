@@ -260,6 +260,12 @@ input[type="submit"]:hover {
   z-index: 1001;
 }
 
+@media (max-width: 768px) {
+  .scroll-top {
+    display: none !important;
+  }
+}
+
 .scroll-top:hover {
   background-color: #eee;
 }
