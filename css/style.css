@@ -21,7 +21,7 @@ p {
 /* ========== Hero Section ========== */
 .hero {
   text-align: center;
-  padding: 2em 1em 1em;
+  padding: 1em 1em 0;
   background-color: #F9F8F7;
   position: relative;
   min-height: 100vh;
@@ -34,13 +34,13 @@ p {
 .hero-subtitle {
   font-size: 1.2em;
   color: #666;
-  margin: 0.5em 0;
+  margin: 0.3em 0 0;
   font-weight: 500;
 }
 
 .hero-title {
-  font-size: 2.4em;
-  margin: 0.3em 0 0.8em;
+  font-size: 2.6em;
+  margin: 0.2em 0 0.8em;
   font-family: 'Playfair Display', serif;
 }
 
@@ -51,13 +51,13 @@ p {
   gap: 2em;
   flex-wrap: nowrap;
   max-width: 1200px;
-  margin: 0 auto 1em;
+  margin: 0 auto;
 }
 
 .hero-photo {
   width: 100%;
   max-width: 480px;
-  height: 85vh;
+  height: 80vh;
   object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -82,11 +82,10 @@ p {
 }
 
 .fade-out {
-  position: absolute;
-  bottom: -1px;
   width: 100%;
   height: 60px;
   background: linear-gradient(to bottom, rgba(249,248,247,0), #F9F8F7);
+  margin-top: -20px;
 }
 
 .divider.spacer {
@@ -113,203 +112,92 @@ p {
   font-style: normal;
 }
 
-/* ========== Memory Wall ========== */
-.wall {
-  padding: 3em 1em;
-  text-align: center;
-}
-
-.wall-title {
-  text-align: center;
-  font-size: 1.8em;
-  margin-bottom: 1.5em;
-  font-family: 'Playfair Display', serif;
-}
-
-.wall-scroll {
-  max-height: 500px;
-  overflow-y: auto;
-  padding: 1em;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  margin: 0 auto;
-  max-width: 900px;
-}
-
-.wall-posts .post {
-  margin-bottom: 1em;
-  padding-bottom: 1em;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-}
-
-/* ========== Gallery Preview ========== */
-.gallery-preview {
-  padding: 3em 1em;
-  text-align: center;
-}
-
-.gallery-preview h3 a {
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 600;
-  color: #333;
-}
-
-.gallery-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1em;
-  max-width: 900px;
-  margin: 1.5em auto 0;
-}
-
-.gallery-preview-grid img {
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  object-fit: cover;
-  width: 100%;
-}
-
-.gallery-preview-grid img:hover {
-  transform: scale(1.05);
-}
-
-/* ========== Footer ========== */
-footer {
-  text-align: center;
-  padding: 2em;
-  font-size: 0.9em;
-  color: #777;
-  background-color: #F9F8F7;
-}
-
-footer a {
-  color: #555;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  margin-top: 0.5em;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  padding: 6px 12px;
-  background-color: #eee;
-  color: #333;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9em;
-  transition: background 0.2s ease;
-}
-
-.footer-links a:hover {
-  background-color: #ddd;
-}
-
-/* ========== Desktop Navigation Bar ========== */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  padding: 0.6em 1em;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transform: translateY(-100%);
-  transition: transform 0.3s ease;
-}
-
-.navbar.visible {
-  transform: translateY(0);
-}
-
-.navbar ul {
-  display: flex;
-  justify-content: center;
-  gap: 1.5em;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar ul li {
-  font-size: 1em;
-}
-
-.navbar a.nav-btn {
-  font-size: 0.95em;
-  padding: 6px 10px;
-  font-weight: 500;
-  color: #333;
-  text-decoration: none;
-}
-
-.navbar a.nav-btn:hover {
-  color: #000;
-}
-
-/* ========== Scroll-to-Top Button ========== */
-.scroll-top {
-  position: fixed;
-  bottom: 1.5em;
-  right: 1.5em;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 0.4em 0.6em;
-  text-decoration: none;
-  color: #333;
-  font-size: 1.2em;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: none;
-  z-index: 1001;
-}
-
-.scroll-top:hover {
-  background-color: #eee;
-}
-
-/* ========== Mobile Nav at Bottom ========== */
+/* ========== Navigation Fix for Mobile ========== */
 @media (max-width: 768px) {
-  body {
-    padding-bottom: 5em;
+  .hero-wrapper {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  .hero-photo {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .hero-date {
+    display: block;
+  }
+
+  .date-year {
+    font-size: 1.5em;
   }
 
   .navbar {
     top: auto;
     bottom: 0;
+    padding: 0.5em 0.5em;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
-    padding: 0.4em 0.5em;
     background-color: #fff;
+    position: fixed;
+    width: 100%;
+    transform: translateY(100%);
+  }
+
+  .navbar.visible {
+    transform: translateY(0);
   }
 
   .navbar ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
-    gap: 0.3em;
+    gap: 0.2em;
     justify-items: center;
     align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .navbar ul li {
-    font-size: 0.8em;
+    font-size: 0.75em;
   }
 
   .navbar a.nav-btn {
-    font-size: 0.8em;
+    font-size: 0.75em;
     padding: 4px 6px;
   }
+
+  body {
+    padding-bottom: 5em;
+  }
 }
+
+/* ========== Desktop Nav Behavior ========== */
+@media (min-width: 769px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.6em 1em;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .navbar.visible {
+    transform: translateY(0);
+  }
+
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+  }
+}
+
+/* ========== Lightbox ESC Fix (JS must support it too) ========== */
+/* Already present in JS, but ensure modal responds to keyboard */
