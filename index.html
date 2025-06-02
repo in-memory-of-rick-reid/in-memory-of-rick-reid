@@ -51,8 +51,8 @@
 
 <!-- Postquote Image -->
 <div class="postquote-wrapper">
-  <img src="Postquote.jpg" alt="Postquote" class="postquote">
-
+  <img src="postquote.jpg" alt="Postquote" class="postquote">
+</div>
 
 <!-- Memory Wall -->
 <section class="wall" id="wall">
@@ -74,7 +74,7 @@
 
 <!-- Footer -->
 <footer id="footer">
-  <p style="color: #fff">Nicole Clark | <a href="https://openai.com" target="_blank">ChatGPT</a></p>
+  <p>Nicole Clark | <a href="https://openai.com" target="_blank">ChatGPT</a></p>
   <div class="footer-links">
     <a href="https://www.facebook.com/share/16g83N5nYW/" target="_blank">Rick's Facebook</a>
     <a href="https://www.facebook.com/share/15fJAbTCgF/" target="_blank">Michelle's Facebook</a>
@@ -85,5 +85,24 @@
 <a href="#hero" class="scroll-top">↑</a>
 
 <script src="js/script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const previewGrid = document.getElementById("previewGrid");
+    const previewImages = [
+      { src: "images/gallery1.jpg", alt: "Rick Photo 1" },
+      { src: "images/gallery2.2.jpg", alt: "Rick Photo 2" },
+      { src: "images/gallery3.jpg", alt: "Rick Photo 3" }
+    ];
+
+    const shuffled = previewImages.sort(() => 0.5 - Math.random());
+    shuffled.forEach(img => {
+      const el = document.createElement("img");
+      el.src = img.src;
+      el.alt = img.alt;
+      el.loading = "lazy";
+      previewGrid.appendChild(el);
+    });
+  });
+</script>
 </body>
 </html>
