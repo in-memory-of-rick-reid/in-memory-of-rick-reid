@@ -108,23 +108,17 @@ p {
   margin: 5em auto 0.5em;
   color: #4A4A4A;
   line-height: 1.4;
+  text-shadow: 0.3px 0.3px 0 currentColor;
 }
 
 .quote-author {
   font-family: 'DM Sans', sans-serif;
   font-size: 1em;
-  margin-top: 0.3em;       /* reduced space between quote and name */
-  margin-bottom: 2.5em;    /* extra space before postquote image */
+  margin-top: 0.3em;
+  margin-bottom: 2.5em;
   color: #666;
   font-style: normal;
   text-align: center;
-}
-
-@media (max-width: 768px) {
-  .quote p {
-    font-size: 32px;
-    padding: 0 1em;
-  }
 }
 
 .postquote-wrapper {
@@ -344,6 +338,7 @@ footer a:hover {
   .navbar {
     top: auto;
     bottom: 0;
+    background-color: #fff;
     box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
   }
 
@@ -368,5 +363,9 @@ footer a:hover {
     font-size: 0.75em;
     padding: 4px 6px;
     font-weight: 700;
+  }
+
+  footer {
+    padding-bottom: 5em; /* prevents footer from hiding behind fixed navbar */
   }
 }
