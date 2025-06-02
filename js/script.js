@@ -2,26 +2,33 @@
 const navbar = document.getElementById('navbar');
 const hero = document.getElementById('hero');
 const scrollTopBtn = document.querySelector('.scroll-top');
+const backToHomeBtn = document.getElementById('back-to-home'); // optional element
 
 window.addEventListener('scroll', () => {
-  const scrolledPastHero = window.scrollY > hero.offsetHeight - 50;
+  const scrolledPastHero = window.scrollY > hero.offsetTop + hero.offsetHeight;
 
-  if (window.innerWidth > 768) {
-    if (scrolledPastHero) {
-      navbar.classList.add('visible');
-    } else {
-      navbar.classList.remove('visible');
-    }
+  if (scrolledPastHero) {
+    navbar.classList.add('visible');
   } else {
-    if (scrolledPastHero) {
-      navbar.classList.add('visible');
-    } else {
-      navbar.classList.remove('visible');
-    }
+    navbar.classList.remove('visible');
   }
 
   if (scrollTopBtn) {
     scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  }
+
+  if (backToHomeBtn) {
+    const galleryPreview = document.querySelector('.gallery-preview');
+    const galleryTop = galleryPreview ? galleryPreview.offsetTop : 0;
+    const bottomScroll = window.scrollY + window.innerHeight;
+
+    if (bottomScroll >= galleryTop) {
+      backToHomeBtn.style.position = 'absolute';
+      backToHomeBtn.style.top = `${window.scrollY + 20}px`;
+    } else {
+      backToHomeBtn.style.position = 'fixed';
+      backToHomeBtn.style.top = '20px';
+    }
   }
 });
 
@@ -98,6 +105,9 @@ if (textarea && charCount) {
   textarea.addEventListener('input', () => {
     charCount.textContent = `${textarea.value.length} / 750`;
   });
+
+  textarea.style.overflowY = 'auto';
+  textarea.style.maxHeight = '120px';
 }
 
 // ===== Lightbox ESC Key Support =====
