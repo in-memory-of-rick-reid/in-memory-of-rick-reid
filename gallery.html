@@ -20,19 +20,13 @@
       gap: 1em;
     }
 
-    @media (max-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     .gallery-grid img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
       border-radius: 10px;
       cursor: pointer;
       transition: transform 0.3s ease;
+      object-fit: cover;
+      height: 200px;
     }
 
     .gallery-grid img:hover {
@@ -73,6 +67,7 @@
       text-decoration: none;
       color: #333;
       z-index: 1001;
+      transition: opacity 0.3s ease;
     }
 
     .back-button {
@@ -85,6 +80,18 @@
       right: 1em;
       display: none;
     }
+
+    @media (max-width: 768px) {
+      .gallery-container h1 {
+        font-size: 1.9em;
+        margin-bottom: 1.5em;
+      }
+
+      .back-button {
+        font-size: 0.85em;
+        padding: 0.4em 0.8em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -92,7 +99,9 @@
   <a href="index.html" class="back-button">← Back to Homepage</a>
 
   <div class="gallery-container">
-    <h1 style="font-family: 'Playfair Display', serif;">Rick's Gallery</h1>
+    <h1 style="font-family: 'Playfair Display', serif; font-size: 2.2em; margin-bottom: 1.5em;">
+      Rick's Gallery
+    </h1>
     <div class="gallery-grid">
       <a href="#img1"><img src="images/gallery1.jpg" alt="Rick 1" /></a>
       <a href="#img2"><img src="images/gallery2.2.jpg" alt="Rick 2" /></a>
@@ -135,8 +144,12 @@
 
     function toggleGalleryButtons() {
       const isLightboxOpen = window.location.hash.startsWith('#img');
-      if (backBtn) backBtn.style.display = isLightboxOpen ? 'none' : 'block';
-      if (topBtn) topBtn.style.display = isLightboxOpen || window.scrollY < 500 ? 'none' : 'block';
+      if (backBtn) {
+        backBtn.style.display = isLightboxOpen ? 'none' : 'block';
+        backBtn.style.opacity = window.scrollY < 80 ? '1' : '0';
+        backBtn.style.pointerEvents = window.scrollY < 80 ? 'auto' : 'none';
+      }
+      if (topBtn) topBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
     }
 
     window.addEventListener('hashchange', toggleGalleryButtons);
