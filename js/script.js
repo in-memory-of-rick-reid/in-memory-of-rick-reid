@@ -5,26 +5,28 @@ const scrollTopBtn = document.querySelector('.scroll-top');
 const backToHomeBtn = document.getElementById('back-to-home'); // optional element
 
 window.addEventListener('scroll', () => {
-  const scrolledPastHero = window.scrollY > hero.offsetTop + hero.offsetHeight;
+  const scrollY = window.scrollY;
+  const heroBottom = hero.offsetTop + hero.offsetHeight;
 
-  if (scrolledPastHero) {
+  // Show navbar only after scrolling past hero, and never hide after
+  if (scrollY > heroBottom) {
     navbar.classList.add('visible');
   } else {
     navbar.classList.remove('visible');
   }
 
   if (scrollTopBtn) {
-    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    scrollTopBtn.style.display = scrollY > 300 ? 'block' : 'none';
   }
 
   if (backToHomeBtn) {
     const galleryPreview = document.querySelector('.gallery-preview');
     const galleryTop = galleryPreview ? galleryPreview.offsetTop : 0;
-    const bottomScroll = window.scrollY + window.innerHeight;
+    const bottomScroll = scrollY + window.innerHeight;
 
     if (bottomScroll >= galleryTop) {
       backToHomeBtn.style.position = 'absolute';
-      backToHomeBtn.style.top = `${window.scrollY + 20}px`;
+      backToHomeBtn.style.top = `${scrollY + 20}px`;
     } else {
       backToHomeBtn.style.position = 'fixed';
       backToHomeBtn.style.top = '20px';
@@ -114,5 +116,27 @@ if (textarea && charCount) {
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && window.location.hash.startsWith('#img')) {
     history.pushState('', document.title, window.location.pathname + window.location.search);
+  }
+});
+
+// ===== Gallery Preview on Home Page =====
+document.addEventListener("DOMContentLoaded", () => {
+  const previewGrid = document.getElementById("previewGrid");
+
+  if (previewGrid) {
+    const previewImages = [
+      { src: "images/gallery1.jpg", alt: "Rick Photo 1" },
+      { src: "images/gallery2.2.jpg", alt: "Rick Photo 2" },
+      { src: "images/gallery3.jpg", alt: "Rick Photo 3" }
+    ];
+
+    const shuffled = previewImages.sort(() => 0.5 - Math.random());
+    shuffled.forEach(img => {
+      const el = document.createElement("img");
+      el.src = img.src;
+      el.alt = img.alt;
+      el.loading = "lazy";
+      previewGrid.appendChild(el);
+    });
   }
 });
