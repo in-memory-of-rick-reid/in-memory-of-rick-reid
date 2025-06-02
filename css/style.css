@@ -113,7 +113,8 @@ p {
 .quote-author {
   font-family: 'DM Sans', sans-serif;
   font-size: 1em;
-  margin-top: 0.5em;
+  margin-top: 0.3em;       /* reduced space between quote and name */
+  margin-bottom: 2.5em;    /* extra space before postquote image */
   color: #666;
   font-style: normal;
   text-align: center;
