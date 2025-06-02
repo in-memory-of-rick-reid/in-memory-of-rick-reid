@@ -1,12 +1,13 @@
 /* ========== Base & Font Setup ========== */
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  max-width: 100vw;
   font-family: 'DM Sans', sans-serif;
   background-color: #F9F8F7;
   color: #333;
   line-height: 1.6;
-  overflow-x: hidden;
-  max-width: 100vw;
 }
 
 h1, h2, h3 {
@@ -98,28 +99,30 @@ p {
 }
 
 /* ========== Quote Section ========== */
-.quote {
+.quote p {
   font-family: 'Tangerine', cursive;
   font-weight: 700;
-  font-size: 2em;
+  font-size: 2.5em;
   text-align: center;
   max-width: 800px;
-  margin: 5em auto 2em;
+  margin: 5em auto 0.5em;
   color: #4A4A4A;
-  line-height: 1.9;
+  line-height: 1.4;
 }
 
 .quote-author {
   font-family: 'DM Sans', sans-serif;
   font-size: 1em;
-  margin-top: 1em;
+  margin-top: 0.5em;
   color: #666;
   font-style: normal;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
-  .quote {
-    font-size: 28px;
+  .quote p {
+    font-size: 32px;
+    padding: 0 1em;
   }
 }
 
@@ -258,16 +261,21 @@ footer a:hover {
 
 /* ========== Navbar Buttons ========== */
 .navbar {
+  display: none;
   justify-content: center;
   padding: 1em 0;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   z-index: 999;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
-  transition: none;
+  transition: top 0.3s;
+}
+
+.navbar.visible {
+  display: flex;
 }
 
 .navbar ul {
@@ -330,6 +338,12 @@ footer a:hover {
 
   .date-year {
     font-size: 1.5em;
+  }
+
+  .navbar {
+    top: auto;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
   }
 
   .navbar ul {
