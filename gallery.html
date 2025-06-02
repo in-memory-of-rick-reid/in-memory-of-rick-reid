@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rick's Gallery</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&family=Great+Vibes&family=Allura&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&family=Great+Vibes&family=Tangerine:wght@700&display=swap" rel="stylesheet">
   <style>
     .gallery-container {
       max-width: 1000px;
@@ -20,13 +20,19 @@
       gap: 1em;
     }
 
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .gallery-grid img {
       width: 100%;
+      height: 200px;
+      object-fit: cover;
       border-radius: 10px;
       cursor: pointer;
       transition: transform 0.3s ease;
-      object-fit: cover;
-      height: 200px;
     }
 
     .gallery-grid img:hover {
