@@ -105,7 +105,7 @@ p {
   font-size: 2.5em;
   text-align: center;
   max-width: 800px;
-  margin: 5em auto 0.5em;
+  margin: 5em auto 0.2em;
   color: #4A4A4A;
   line-height: 1.4;
   text-shadow: 0.3px 0.3px 0 currentColor;
@@ -115,7 +115,7 @@ p {
   font-family: 'DM Sans', sans-serif;
   font-size: 1em;
   margin-top: 0.3em;
-  margin-bottom: 2.5em;
+  margin-bottom: 3em;
   color: #666;
   font-style: normal;
   text-align: center;
@@ -123,7 +123,7 @@ p {
 
 .postquote-wrapper {
   text-align: center;
-  margin: 2em auto;
+  margin: 3em auto 2em;
 }
 
 .postquote {
@@ -216,15 +216,15 @@ p {
 /* ========== Footer ========== */
 footer {
   text-align: center;
-  padding: 2em;
+  padding: 2em 1em 3.5em;
   font-size: 0.9em;
-  color: #fff;
-  background-color: transparent !important;
+  color: #333;
+  background-color: transparent;
   margin-top: 3em;
 }
 
 footer a {
-  color: #fff;
+  color: #333;
   text-decoration: none;
 }
 
@@ -314,7 +314,7 @@ footer a:hover {
 /* ========== Responsive Fixes ========== */
 @media (max-width: 768px) {
   body {
-    padding-bottom: 5em; /* more room for fixed navbar */
+    padding-bottom: 5em;
   }
 
   .hero-wrapper {
@@ -364,25 +364,34 @@ footer a:hover {
     font-weight: 700;
   }
 
-  .quote p {
-    font-size: 32px;
-    padding: 0 1em;
-  }
-
-  .gallery-preview-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   footer {
-    padding: 2em 1em 6em; /* top, sides, bottom */
+    padding-bottom: 4em;
   }
 
   footer p {
-    margin-top: 0;
-    margin-bottom: 1em;
+    margin: 0 0 1em;
     font-size: 0.9em;
-    color: #fff;
+    color: #333;
     text-align: center;
-    display: block;
+  }
+
+  .quote p {
+    font-size: 32px;
+    margin-bottom: 0.2em;
+  }
+
+  .quote-author {
+    margin-top: 0.5em;
+    margin-bottom: 2.5em;
+  }
+
+  .gallery-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 1.2em;
+  }
+
+  .back-button {
+    font-size: 0.85em;
+    padding: 0.4em 0.8em;
   }
 }
