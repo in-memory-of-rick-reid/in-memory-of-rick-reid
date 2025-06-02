@@ -5,13 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rick's Gallery</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&family=Great+Vibes&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&family=Great+Vibes&family=Allura&display=swap" rel="stylesheet">
   <style>
     .gallery-container {
       max-width: 1000px;
-      margin: 4em auto;
+      margin: 5em auto 4em;
       padding: 1em;
       text-align: center;
+    }
+
+    .gallery-container h1 {
+      font-size: 2em;
+      margin-bottom: 1.5em;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-container h1 {
+        font-size: 1.6em;
+        margin-bottom: 1.8em;
+      }
     }
 
     .gallery-grid {
@@ -61,18 +73,18 @@
       position: fixed;
       background: #fff;
       border: 1px solid #ccc;
-      padding: 0.5em 1em;
+      padding: 0.4em 0.9em;
       border-radius: 6px;
       font-weight: 600;
       text-decoration: none;
       color: #333;
       z-index: 1001;
-      transition: opacity 0.3s ease;
     }
 
     .back-button {
       top: 1em;
       left: 1em;
+      font-size: 0.9em;
     }
 
     .top-button {
@@ -82,14 +94,9 @@
     }
 
     @media (max-width: 768px) {
-      .gallery-container h1 {
-        font-size: 1.9em;
-        margin-bottom: 1.5em;
-      }
-
       .back-button {
-        font-size: 0.85em;
-        padding: 0.4em 0.8em;
+        font-size: 0.75em;
+        padding: 0.4em 0.7em;
       }
     }
   </style>
@@ -99,9 +106,7 @@
   <a href="index.html" class="back-button">← Back to Homepage</a>
 
   <div class="gallery-container">
-    <h1 style="font-family: 'Playfair Display', serif; font-size: 2.2em; margin-bottom: 1.5em;">
-      Rick's Gallery
-    </h1>
+    <h1 style="font-family: 'Playfair Display', serif;">Rick's Gallery</h1>
     <div class="gallery-grid">
       <a href="#img1"><img src="images/gallery1.jpg" alt="Rick 1" /></a>
       <a href="#img2"><img src="images/gallery2.2.jpg" alt="Rick 2" /></a>
@@ -133,23 +138,23 @@
   <a class="top-button" href="#top">↑ Back to Top</a>
 
   <script>
+    // ESC key to close lightbox
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && window.location.hash.startsWith('#img')) {
         history.pushState('', document.title, window.location.pathname + window.location.search);
       }
     });
 
+    // Show/hide buttons based on scroll and lightbox state
     const backBtn = document.querySelector('.back-button');
     const topBtn = document.querySelector('.top-button');
 
     function toggleGalleryButtons() {
       const isLightboxOpen = window.location.hash.startsWith('#img');
-      if (backBtn) {
-        backBtn.style.display = isLightboxOpen ? 'none' : 'block';
-        backBtn.style.opacity = window.scrollY < 80 ? '1' : '0';
-        backBtn.style.pointerEvents = window.scrollY < 80 ? 'auto' : 'none';
-      }
-      if (topBtn) topBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+      const scrollY = window.scrollY;
+
+      if (backBtn) backBtn.style.display = (isLightboxOpen || scrollY > 150) ? 'none' : 'block';
+      if (topBtn) topBtn.style.display = (isLightboxOpen || scrollY < 500) ? 'none' : 'block';
     }
 
     window.addEventListener('hashchange', toggleGalleryButtons);
