@@ -314,7 +314,7 @@ footer a:hover {
 /* ========== Responsive Fixes ========== */
 @media (max-width: 768px) {
   body {
-    padding-bottom: 4.5em;
+    padding-bottom: 5em; /* more room for fixed navbar */
   }
 
   .hero-wrapper {
@@ -346,7 +346,6 @@ footer a:hover {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
-    list-style: none;
     margin: 0;
     padding: 0;
     gap: 0.2em;
@@ -365,7 +364,25 @@ footer a:hover {
     font-weight: 700;
   }
 
+  .quote p {
+    font-size: 32px;
+    padding: 0 1em;
+  }
+
+  .gallery-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   footer {
-    padding-bottom: 5em; /* prevents footer from hiding behind fixed navbar */
+    padding: 2em 1em 6em; /* top, sides, bottom */
+  }
+
+  footer p {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
+    display: block;
   }
 }
